@@ -1,0 +1,79 @@
+--Lua Guessing Game
+--09/17/2026
+--William
+
+
+--( lua54 Lua_Guessing_Game ) to run
+
+GameNumber = 1
+GameFinished = 0
+UserInput = "U"
+
+while GameFinished ~= 1 do
+
+    UserInput = "U"
+
+    
+    math.randomseed(os.time())
+    RandomNumber = math.random(1, 100) 
+
+    print("Guess A number between 1 and 100")
+
+    Attempts = 7
+
+    while Attempts >= 0 or Attempts ~= -9 do
+
+
+        print(" ")
+        print("Attempts Remaining: " .. Attempts)
+        io.write("Guess Number: ")
+        UserNumberGuess = tonumber(io.read())
+
+
+            while UserNumberGuess == nil do
+                print ("That is not a number")
+                UserNumber = tonumber(io.read())
+            end
+
+            if (UserNumberGuess < RandomNumber) then
+                print("Guessed Number is too Low.")
+                Attempts = Attempts - 1
+
+            else if (UserNumberGuess > RandomNumber) then
+                print("Guessed Number is too High.")
+                Attempts = Attempts - 1
+
+            else   
+                print("you Win, the Number was: " .. RandomNumber)
+                Attempts = -9
+            end
+
+        end
+
+        if Attempts == 0 then
+            print("You lose, Your number was: " .. RandomNumber)
+
+        end
+
+    end
+
+    while UserInput == "U" do
+
+        print(" ")
+        print("Do you want to Continue Playing? Y/N.")
+        io.write("Input: ")
+        UserInput = io.read()
+
+            if UserInput == ("Y") then
+                GameFinished = 0
+
+            else 
+                GameFinished = 1
+
+            end
+
+    end
+
+print("Program Closing.")
+
+end
