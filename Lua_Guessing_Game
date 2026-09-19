@@ -2,8 +2,11 @@
 --09/17/2026
 --William
 
+--A guessing game were the user guess a number between 1 and 100 and has 7 attempts to get the right number,
+--while being told higher or lower to help them guess the right number.
 
---( lua54 Lua_Guessing_Game ) to run
+
+-- use ( lua54 Lua_Guessing_Game ) to run the program.
 
 GameNumber = 1
 GameFinished = 0
