@@ -31,8 +31,11 @@ while GameFinished ~= 1 do
 
 
             while UserNumberGuess == nil do
-                print ("That is not a number")
-                UserNumber = tonumber(io.read())
+                print ("That isn't a number.")
+
+                print(" ")
+                io.write("Guess Number: ")
+                UserNumberGuess = tonumber(io.read())
             end
 
             if (UserNumberGuess < RandomNumber) then
@@ -44,14 +47,14 @@ while GameFinished ~= 1 do
                 Attempts = Attempts - 1
 
             else   
-                print("you Win, the Number was: " .. RandomNumber)
+                print("You Win, Your Number was: " .. RandomNumber .. ".")
                 Attempts = -9
             end
 
         end
 
-        if Attempts == 0 then
-            print("You lose, Your number was: " .. RandomNumber)
+        if Attempts == -1 then
+            print("You Lose, Your Number was: " .. RandomNumber .. ".")
 
         end
 
@@ -63,17 +66,23 @@ while GameFinished ~= 1 do
         print("Do you want to Continue Playing? Y/N.")
         io.write("Input: ")
         UserInput = io.read()
+        UpperUserInput = string.upper(UserInput)
 
-            if UserInput == ("Y") then
+            if UpperUserInput == ("Y") then
                 GameFinished = 0
 
-            else 
+            else if UpperUserInput == ("N") then
                 GameFinished = 1
 
-            end
 
+            else
+                print("Invalid Input. Enter Y/N to make selection.")
+                UserInput = ("U")
+
+            end
+        end
     end
 
-print("Program Closing.")
-
 end
+
+print("Program Closing.")
